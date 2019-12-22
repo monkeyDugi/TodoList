@@ -32,6 +32,9 @@
     - 김치 썰기
     - 밥먹기
   ```
-  #
-  ### 시안
+#
+### 시안
+<div>
+   <img width="auto" height="auto" src="https://user-images.githubusercontent.com/53487385/71318532-66d39e00-24d5-11ea-8811-ea0a5699a507.PNG">
+</div>
   
