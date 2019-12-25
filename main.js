@@ -37,7 +37,6 @@ function addElement(event) {
     for (i = 0; i < close.length; i++) {
         close[i].addEventListener('click', function(event) {
             let li = this.parentElement;
-            // li.style.display = "none";
             li.remove();
         });
     }    
