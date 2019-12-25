@@ -7,14 +7,15 @@ let close = document.getElementsByClassName("close");
 let list = document.querySelector('ul');
 let li = document.createElement("li");
 let addBtn = document.getElementById("addBtn");
+let addInput = document.getElementById("addInput");
 
 /**추가 */
-function addElement() {
+function addElement(event) {
     li = document.createElement("li");
-    let addInput = document.getElementById("addInput").value;
-    let txt = document.createTextNode(addInput);
+    let addInputVlaue = addInput.value;
+    let txt = document.createTextNode(addInputVlaue);
 
-    if(addInput === '') {
+    if(addInputVlaue === '') {
         alert("내용을 입력 해주세요");
         return false;
     }
@@ -34,19 +35,30 @@ function addElement() {
     li.appendChild(span);
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
+        close[i].addEventListener('click', function(event) {
             let li = this.parentElement;
             li.style.display = "none";
-        }
+        });
     }    
 }
 
 /**리스트 클릭 시 완료 표시 */
-list.addEventListener('click', function(ev) {
-    if(ev.target.tagName === "LI") {
-        ev.target.classList.toggle('checked');
+list.addEventListener('click', function(event) {
+    if(event.target.tagName === "LI") {
+        event.target.classList.toggle('checked');
     }
 });
 
+function enterKey(event) {
+    if(event.keyCode == 13) {
+        addElement();
+    }
+}
+
+/**이벤트 **************************************************************************/
+
 /**추가버튼 클릭 */
 addBtn.addEventListener('click', addElement);
+
+/**입력칸 엔터 */
+addInput.addEventListener('keydown', enterKey);
