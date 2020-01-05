@@ -1,0 +1,23 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monkeyDugi/TodoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monkeyDugi/TodoList/issues"
+  },
+  "homepage": "https://github.com/monkeyDugi/TodoList#readme",
+  "dependencies": {
+    "cookie": "^0.4.0",
+    "http": "0.0.0"
+  }
+}

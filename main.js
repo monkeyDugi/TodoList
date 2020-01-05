@@ -1,4 +1,4 @@
-const close = document.getElementsByClassName('close')
+const close = document.getElementsByClassName('closeSpan')
 /** querySelector : 한가지 요소만 가져오며, 동일한 요소가 있으면 첫번째 요소만 가져온다.
  * getElementsBy, getElementsBy : 배열 요소로 동일 한 모든 name을 가져오기 때문에 무조건 배열로 접근해야 한다. getElementsById는 별개임. id는 한개만 존재 가능하니까.
  *
@@ -10,7 +10,7 @@ const addBtn = document.getElementById('addBtn')
 const addInput = document.getElementById('addInput')
 
 /** 추가 */
-function addElement (event) {
+function addElement () {
   li = document.createElement('li')
   const addInputVlaue = addInput.value
   const txt = document.createTextNode(addInputVlaue)
@@ -20,26 +20,41 @@ function addElement (event) {
     return false
   }
 
+  // 등록일자 생성
+  const dateSpan = document.createElement('dateSpan')
+  const date = new Date()
+  const regiDate = document.createTextNode(date.getYear() + 1900 + '년' + date.getMonth() + 1 + '월' + date.getDate() + '일')
+
+  dateSpan.className = 'dateSpan' 
+  dateSpan.appendChild(regiDate)
+
+  li.appendChild(dateSpan)
+
+  // 입력내용 생성
   li.appendChild(txt)
 
   list.appendChild(li)
 
   document.getElementById('addInput').value = ''
 
-  const span = document.createElement('span')
+  // 닫기버튼 생성
+  const closeSpan = document.createElement('closeSpan')
   const closeTxt = document.createTextNode('\u00D7')
 
-  span.className = 'close'
-  span.appendChild(closeTxt)
+  closeSpan.className = 'closeSpan'
+  closeSpan.appendChild(closeTxt)
 
-  li.appendChild(span)
+  li.appendChild(closeSpan)
 
   for (i = 0; i < close.length; i++) {
-    close[i].addEventListener('click', function (event) {
+    close[i].addEventListener('click', function () {
       const li = this.parentElement
       li.remove()
+      addInput.focus()
     })
   }
+
+  addInput.focus()
 }
 
 /** 리스트 클릭 시 완료 표시 */
