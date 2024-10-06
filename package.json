@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/monkeyDugi/TodoList#readme",
   "dependencies": {
-    "cookie": "^0.4.0",
+    "cookie": "^0.7.0",
     "http": "0.0.0"
   }
 }
